@@ -1,9 +1,10 @@
 import { FormWrapper } from "./FormStyled";
+import { connect } from "react-redux";
+import { addContact } from '../../redux/actions';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 
-export default function Form({ onSubmit }) {
+const Form = function ({ onSubmit }) {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
@@ -26,7 +27,7 @@ export default function Form({ onSubmit }) {
 
     const handleSubmit = event => {
         event.preventDefault();
-        onSubmit({ name, number, id: uuidv4() });
+        onSubmit(name, number);
         setName('');
         setNumber('')
     }
@@ -64,3 +65,9 @@ export default function Form({ onSubmit }) {
         </FormWrapper>
     );
 }
+const mapDispatchToProps = dispatch => ({
+    onSubmit: (name, number) => dispatch(addContact(name, number))
+});
+
+
+export default connect(null, mapDispatchToProps)(Form);
