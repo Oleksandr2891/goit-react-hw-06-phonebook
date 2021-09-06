@@ -8,15 +8,6 @@ import GlobalStyles from "../src/style/GlobalStyle";
 
 export default function App() {
 
-  // useEffect(() => {
-  //   const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-  //   parsedContacts?.length ? setContacts(parsedContacts) : setContacts(contactsBase);
-  // }, [])
-
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts))
-  // }, [contacts])
-
   return (
     <>
       <GlobalStyles />
